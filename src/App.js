@@ -3,79 +3,73 @@ import {useEffect,useState} from 'react';                     //import useState
 
 
 function App() {
-const [userInput1,setUserInput1]=useState({name:"",usn:"",univ:"",gen:"",age:""})   //destructure array
-const [showVal,setShowVal]=useState(false)
-const fn=()=>{
-  if(showVal==true)
-    <h1></h1>
-  else
-    showVal=true
+const [userInput1,setUserInput1]=useState({sst:0,hindi:0})   //destructure array
+const [userInput2,setUserInput2]=useState({sst:0,hindi:0})   //destructure array
 
-}
- const handleNameChange1 = (event) => {   
+const clickme=()=>{
+ if(userInput1.sst>userInput2.sst)
+ {
+   alert("1 wins in sst")
+ }
+ else{
+   alert("2 wins in sst")
+ }
+ if(userInput1.hindi>userInput2.hindi)
+ {
+   alert("1 wins in sst")
+ }
+ else{
+   alert("2 wins in sst")
+ }
+ }
+
+ const handleSChange1 = (event) => {   
   const obj1={
-    name:event.target.value,
-    usn:userInput1.usn,
-    univ:userInput1.univ,
-    gen:userInput1.gen,
-    age:userInput1.age
+    sst:event.target.value,
+    hindi:userInput1.hindi
   }  
   setUserInput1(obj1) 
 }
-const handleUSNChange1 = (event) => {   
+
+const handleSSChange1 = (event) => {   
   const obj1={
-    name:userInput1.name,
-    usn:event.target.value,
-    univ:userInput1.univ,
-    gen:userInput1.gen,
-    age:userInput1.age
-  }   
-  setUserInput1(obj1)  
-}
-const handleUNIVChange1 = (event) => {   
-  const obj1={
-    name:userInput1.name,
-    usn:userInput1.usn,
-    univ:event.target.value,
-    gen:userInput1.gen,
-    age:userInput1.age
-  }  
-  setUserInput1(obj1)   
-}
-const handleGENChange1 = (event) => {   
-  const obj1={
-    name:userInput1.name,
-    usn:userInput1.usn,
-    univ:userInput1.univ,
-    gen:event.target.value,
-    age:userInput1.age
-  }  
-  setUserInput1(obj1)   
-}
-const handleAGEChange1 = (event) => {   
-  const obj1={
-    name:userInput1.name,
-    usn:userInput1.usn,
-    univ:userInput1.univ,
-    gen:userInput1.gen,
-    age:event.target.value
+    
+    sst:userInput1.sst,
+    hindi:event.target.value
   }  
   setUserInput1(obj1)   
 }
 
+const handleSSSChange1 = (event) => {   
+  const obj2={
+    sst:event.target.value,
+    hindi:userInput2.hindi
+  }  
+  setUserInput2(obj2) 
+}
 
+const handleSSSSChange1 = (event) => {   
+  const obj2={
+    
+    sst:userInput2.sst,
+    hindi:event.target.value
+  }  
+  setUserInput2(obj2)   
+}
 
 
   return (
     <div className="App">
  <form>
     
-    <input id="name"onChange={handleNameChange1} value={userInput1.name}></input><br></br>
-    <input id="usn"onChange={handleUSNChange1}value={userInput1.usn}></input><br></br>
-    <input id="usn"onChange={handleUNIVChange1}value={userInput1.univ}></input><br></br>
-    <input id="usn"onChange={handleGENChange1}value={userInput1.gen}></input><br></br>
-    <input id="usn"onChange={handleAGEChange1}value={userInput1.age}></input><br></br>
-    <button onClick={fn()}></button>
+    <input onChange={handleSChange1} value={userInput1.sst}></input><br></br>
+    <input onChange={handleSSChange1}value={userInput1.hindi}></input><br></br>
+    <input onChange={handleSSSChange1} value={userInput2.sst}></input><br></br>
+    <input onChange={handleSSSSChange1}value={userInput2.hindi}></input><br></br>
+
+    <button onClick={clickme}>
+    Click me</button>
+   
   </form> 
 
 
